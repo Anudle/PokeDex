@@ -1,18 +1,19 @@
 var baseurl = 'http://pokeapi.co/api/v2/pokemon/'
-num = 2
+num = 1
 
-function plus(){
-  num + 1;
-}
-
-plus()
-  $.ajax({
+function call(num){ $.ajax({
       type: "GET",
       url: baseurl + num,
       dataType: "json",
       success: function(result){
-            pokemon = result
-      console.log(pokemon)
-
+      console.log(result)
     }
 });
+}
+
+function plus(){
+num = num + 1
+call(num)
+}
+
+plus()
