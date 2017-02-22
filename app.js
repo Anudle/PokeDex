@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   var baseurl = 'http://pokeapi.co/api/v2/pokemon/'
-  num = 1
+  num = 35
 
   function call(num){ $.ajax({
         type: "GET",
@@ -8,8 +8,9 @@ $( document ).ready(function() {
         dataType: "json",
         success: function(result){
         var pic = result.sprites.front_default
-        $('.dex').html(result.name)
+        $('.name').html(result.name.toUpperCase())
         $('.pic').html("<img src='"+ pic +"'>")
+        console.log(result)
       }
   });
   }
