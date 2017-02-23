@@ -1,38 +1,65 @@
-$( document ).ready(function() {
-  var baseurl = 'http://pokeapi.co/api/v2/pokemon/'
-  num = 35
-
-  function call(num){ $.ajax({
-        type: "GET",
-        url: baseurl + num,
-        dataType: "json",
-        success: function(result){
-        var pic = result.sprites.front_default
-        $('.name').html(result.name.toUpperCase())
-        $('.pic').html("<img src='"+ pic +"'>")
-        console.log(result)
+$(document).ready(function() {
+    var baseurl = 'http://pokeapi.co/api/v2/pokemon/'
+    num = 99
+function getname(data){
+  $('.name').html(data.name.toUpperCase())
+}
+function getmoves(data){
+  for (i = 0; i < 3; i++) {
+      var move = data.moves[i].move.name
+      var movearray = move.split('')
+      var cap = movearray[0].toUpperCase()
+      movearray.shift()
+      movearray.unshift(cap)
+      var final = movearray.join('')
+      if (i != 2) {
+          $('.move').append(final + ', ')
       }
-  });
-  }
+      if (i == 2){
+          $('.move').append(final)
+        }
+    }
+}
 
-  call(num)
 
-  function minus(){
-    num = num - 1;
+    function call(num) {
+        $.ajax({
+            type: "GET",
+            url: baseurl + num,
+            dataType: "json",
+            success: function(result) {
+              getmoves(result)
+                var pic = result.sprites.front_default
+                getname(result)
+                $('.pic').html("<img src='" + pic + "'>")
+                $('.weight').html('weight: ' + result.weight + ' pounds')
+                console.log(result)
+
+            }
+        });
+    }
+
+
+
+
     call(num)
-  }
 
-  function plus(){
-  num = num + 1
-  call(num)
-  }
+    function minus() {
+        num = num - 1;
+        call(num)
+    }
 
-  $( ".next" ).click(function() {
-    plus()
-  });
+    function plus() {
+        num = num + 1
+        call(num)
+    }
 
-  $( ".back" ).click(function() {
-    minus()
-  });
+    $(".next").click(function() {
+        plus()
+    });
+
+    $(".back").click(function() {
+        minus()
+    });
 
 });
