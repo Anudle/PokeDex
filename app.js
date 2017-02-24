@@ -60,11 +60,9 @@ $(document).ready(function() {
             }
         });
     }
+
     call(num)
-
-
-
-
+    
     $(".next").click(function() {
         plus()
     });
