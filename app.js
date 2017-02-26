@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    var baseurl = 'http://pokeapi.co/api/v1/pokemon/'
-    var picurl= 'http://pokeapi.co/api/v2/pokemon/'
+    var baseurl = 'https://pokeapi.co/api/v1/pokemon/'
+    var picurl= 'https://pokeapi.co/api/v2/pokemon/'
     num =1
 
     function getname(data) {
