@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var baseurl = 'https://pokeapi.co/api/v1/pokemon/'
     var picurl= 'https://pokeapi.co/api/v2/pokemon/'
-    num = 23
+    num = 1
 
     function getname(data) {
         $('.name').html(data.name.toUpperCase())
@@ -59,7 +59,6 @@ $(document).ready(function() {
                  $('.height').html(result.height + ' Feet')
                 $('.weight').html(result.weight + ' pounds')
                 console.log(result)
-
             }
         });
     }

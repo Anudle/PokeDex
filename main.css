@@ -1032,3 +1032,14 @@ body{
 	}
 
 }
+#warning{
+	float: right;
+	background-color: black;
+	height: 10px;
+	font-size: 39px;
+}
+
+.weight, .height, .name, .move{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: solid;
+}
