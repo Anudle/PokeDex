@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var baseurl = 'http://pokeapi.co/api/v2/pokemon/'
-    num = 111
+    num =99
 
     function getname(data) {
         $('.name').html(data.name.toUpperCase())
@@ -29,7 +29,8 @@ $(document).ready(function() {
         type.shift()
         type.unshift(cap)
         var final = type.join('')
-        console.log(final)
+          $('.type').html(final)
+
     }
 
     function minus() {
@@ -52,9 +53,11 @@ $(document).ready(function() {
                 $('.move').html(' ')
                 getname(result)
                 getmoves(result)
+                getType(result)
                 var pic = result.sprites.front_default
-                $('.pic').html("<img src='" + pic + "'>")
-                $('.weight').html('Weight: ' + result.weight + ' pounds')
+                $('.pic').html("<img src='" + pic + "'style='height: 150px; overflow:atuo'>")
+                $('.height').html(result.height + ' inches')
+                $('.weight').html(result.weight + ' pounds')
                 console.log(result)
                 getType(result)
             }
@@ -62,12 +65,12 @@ $(document).ready(function() {
     }
 
     call(num)
-    
-    $(".next").click(function() {
+
+    $("#rightcross").click(function() {
         plus()
     });
 
-    $(".back").click(function() {
+    $("#leftcross").click(function() {
         minus()
     });
 
