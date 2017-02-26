@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var baseurl = 'https://pokeapi.co/api/v1/pokemon/'
     var picurl= 'https://pokeapi.co/api/v2/pokemon/'
-    num =1
+    num = 23
 
     function getname(data) {
         $('.name').html(data.name.toUpperCase())

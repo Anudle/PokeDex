@@ -6,14 +6,21 @@
 body{
 	background: url('http://www.imgbase.info/images/safe-wallpapers/miscellaneous/8_bit/48672_8_bit_8_bit_scenery.jpg' );
 	background-size: cover;
+	height: 110vh;
 }
 
 @media all {
 
+	.logo{
+		height: 200px;
+	}
+
 	div#pokedex
 	{
 		width: 750px;
-		margin: 50px auto 0 auto;
+		margin-left: 30vw;
+		margin-top: -15vh;
+		margin-bottom: 20vh;
 	}
 
 	div#left
@@ -290,7 +297,7 @@ body{
 	div#picture
 	{
 		height: 175px;
-		width: 254px;
+		width: 220x;
 		margin-top: 20px;
 		margin-bottom: 9px;
 		background-color: #fff;
