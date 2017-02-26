@@ -3,7 +3,10 @@
 	padding: 0;
 }
 
-
+body{
+	background: url('http://www.imgbase.info/images/safe-wallpapers/miscellaneous/8_bit/48672_8_bit_8_bit_scenery.jpg' );
+	background-size: cover;
+}
 
 @media all {
 
@@ -678,9 +681,10 @@
 
 	div#bg_curve1_right
 	{
+
 		width: 350px;
 		height: 80px;
-		background-color: #fff;
+		 opacity: 1;
 
 		border-top-right-radius: 30px;
 		-webkit-border-top-right-radius: 30px;
@@ -692,7 +696,7 @@
 	{
 		width: 216px;
 		height: 100px;
-		background-color: #fff;
+		 opacity: 1;
 		float: left;
 
 		position: absolute;
