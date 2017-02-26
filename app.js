@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    var baseurl = 'http://pokeapi.co/api/v2/pokemon/'
-    num =99
+    var baseurl = 'http://pokeapi.co/api/v1/pokemon/'
+    var picurl= 'http://pokeapi.co/api/v2/pokemon/'
+    num =1
 
     function getname(data) {
         $('.name').html(data.name.toUpperCase())
@@ -15,7 +16,7 @@ $(document).ready(function() {
             movearray.unshift(cap)
             var final = movearray.join('')
             if (i == 0) {
-                $('.move').append('Moves: ' + final)
+                $('.move').append(final)
             }
             if (i != 0) {
                 $('.move').append(', ' + final)
@@ -24,7 +25,7 @@ $(document).ready(function() {
     }
 
     function getType(data) {
-        var type = data.types[0].type.name.split('')
+        var type = data.types[0].name.split('')
         var cap = type[0].toUpperCase()
         type.shift()
         type.unshift(cap)
@@ -36,11 +37,13 @@ $(document).ready(function() {
     function minus() {
         num = num - 1;
         call(num)
+        getPic(num)
     }
 
     function plus() {
         num = num + 1
         call(num)
+        getPic(num)
     }
 
 
@@ -50,22 +53,31 @@ $(document).ready(function() {
             url: baseurl + num,
             dataType: "json",
             success: function(result) {
-                $('.move').html(' ')
-                getname(result)
-                getmoves(result)
-                getType(result)
-                var pic = result.sprites.front_default
-                $('.pic').html("<img src='" + pic + "'style='height: 150px; overflow:atuo'>")
-                $('.height').html(result.height + ' inches')
+
+                 getname(result)
+                 getType(result)
+                 $('.height').html(result.height + ' Feet')
                 $('.weight').html(result.weight + ' pounds')
                 console.log(result)
-                getType(result)
+
             }
         });
     }
-
+function getPic(num){
+  $.ajax({
+    type:"GET",
+    url: picurl + num,
+    dataType: "json",
+    success: function(result){
+      var pic = result.sprites.front_default
+      $('.pic').html("<img src='" + pic + "'style='height: 150px; overflow:atuo'>")
+      $('.move').html(' ')
+      getmoves(result)
+    }
+  })
+}
     call(num)
-
+    getPic(num)
     $("#rightcross").click(function() {
         plus()
     });
